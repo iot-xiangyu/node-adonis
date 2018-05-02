@@ -1,0 +1,19 @@
+@layout('layouts.main')
+
+@section('header')
+{{-- @super --}}
+<h1>{{ user.name || 'no user' }}</h1>
+@endsection
+
+@section('content')
+{{-- @super --}}
+@component('components.list', {
+  deviceList: deviceList,
+  border: true,
+  borderColor: 'red'
+})
+  @slot('notes')
+    <small>welcome to myiot</small>
+  @endslot
+@endcomponent
+@endsection

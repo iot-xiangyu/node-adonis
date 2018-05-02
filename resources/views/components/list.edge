@@ -1,0 +1,21 @@
+@each(device in deviceList)
+  <div
+    style="
+      padding: 4px;
+      @if(!$loop.last && border)
+      border-bottom: 1px solid {{ borderColor || '#eee' }}
+      @endif
+    "
+  >
+    <small>
+      id:{{ $loop.index + 1 }}.
+    </small>
+    <h3>
+      {{ device.name }}: {{ device.describe }}
+    </h3>
+  </div>
+@endeach
+
+@yield($slot.notes)
+  <small>请输入内容...</small>
+@endyield
